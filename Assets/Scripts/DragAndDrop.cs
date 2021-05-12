@@ -14,9 +14,11 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
     [SerializeField] GameObject optionWorld;
     //Action action;
     public Item item;
+    GameObject optionPanel;
+    GameObject foodHolder;
     private void Awake()
     {
-        
+        optionPanel = GameObject.FindGameObjectWithTag("OptionPanel");  
         canvas = FindObjectOfType<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         
@@ -24,7 +26,12 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        
+        
+        transform.SetParent(canvas.transform);
         defaultPos = transform.position;
+        var temp = Instantiate(gameObject, transform);
+        temp.transform.SetParent(optionPanel.transform);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -34,6 +41,7 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
 
     public void OnDrop(PointerEventData eventData)
     {
+        DestroyPreviousFood();
         var temp= Instantiate(optionWorld, transform);
         temp.transform.parent = null;
         temp.transform.position=new Vector3(temp.transform.position.x, temp.transform.position.y, 0);
@@ -51,7 +59,7 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Instantiate(gameObject);
+       
         
     }
 
@@ -59,6 +67,17 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
 
         this.item = item;
 
+    }
+
+    public void DestroyPreviousFood() {
+
+        var food = GameObject.FindGameObjectsWithTag("Food");
+        if (food.Length < 1)
+        { Debug.Log("No food"); }
+        foreach (var item in food)
+        {
+            Destroy(item);
+        }
     }
     
 }

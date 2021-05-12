@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Triceptosaurs Animation.unity
-    guid: 6408e3e83615a0a4aab95a177906aeba
+    path: Assets/Scenes/game.unity
+    guid: 2e0e5924d9cbe1e48a0fa7981a476d75
   m_configObjects: {}

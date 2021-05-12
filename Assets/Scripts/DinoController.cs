@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DinoController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class DinoController : MonoBehaviour
     Collider2D collider;
 
     [SerializeField] ItemType dinotype;
+    [SerializeField] GameObject likeEffect;
+    [SerializeField] Transform optionPanel;
 
     void Start()
     {
@@ -29,7 +32,7 @@ public class DinoController : MonoBehaviour
 
             if (food.GetComponent<OptionScript>().FoodCheck() == dinotype)
             {
-                animController.Like();
+                likeEffect.SetActive(true);
             }
             else {
                 animController.Dislike();
@@ -39,9 +42,25 @@ public class DinoController : MonoBehaviour
         }
     }
 
-    public void InstantiateOption(){
+    public void DisableOption(){
 
+        foreach (Transform item in optionPanel)
+        {
+           var temp= item.GetComponent<Image>();
+            temp.raycastTarget = false;
+            temp.color = Color.black;
+        }
 
+    }
+    public void EnableOption()
+    {
+
+        foreach (Transform item in optionPanel)
+        {
+            var temp = item.GetComponent<Image>();
+            temp.raycastTarget = true;
+            temp.color = Color.white;
+        }
 
     }
 }

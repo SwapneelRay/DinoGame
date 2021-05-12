@@ -14,6 +14,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] AIDestinationSetter target;
     [SerializeField] GameObject placeholder;
     [SerializeField] Transform panel;
+    [SerializeField] GameObject likeEffect;
 
 
     // Start is called before the first frame update
