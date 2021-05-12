@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8060847401771296048}
   - component: {fileID: 2515251472952380548}
   - component: {fileID: 6836414878639652473}
-  - component: {fileID: -2714897000567540651}
+  - component: {fileID: 5342033421154026463}
   m_Layer: 5
   m_Name: Option
   m_TagString: Untagged
@@ -88,7 +88,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &-2714897000567540651
+--- !u!114 &5342033421154026463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,4 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   target: {fileID: 0}
-  dino: {fileID: 0}
+  optionWorld: {fileID: 992923624923104233, guid: 307868ef1cbd31d42927a84b9b629bec,
+    type: 3}
+  item:
+    itemType: 0
+    itemSprite: {fileID: 0}

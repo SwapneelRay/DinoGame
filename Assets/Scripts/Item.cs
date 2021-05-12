@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[System.Serializable]
-public class Item
-{
-   public enum ItemType {
+public enum ItemType {
 
     Meat,
     Grass
 
 
 }
+[System.Serializable]
+public class Item
+{
+   
     public ItemType itemType;
     public Sprite itemSprite;
  

@@ -41,8 +41,15 @@ public class GameManagerScript : MonoBehaviour
         {
             var temp = Instantiate(option, panel);
             temp.transform.SetParent(panel);
-            temp.GetComponent<Image>().sprite = item.itemSprite; 
+            temp.GetComponent<Image>().sprite = item.itemSprite;
+            temp.GetComponent<DragAndDrop>().InitialiseOption(item);
         }
+
+    }
+
+    void InstantiateOptionWorld() {
+
+
 
     }
 

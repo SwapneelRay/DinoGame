@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,17 +8,18 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
 {
     [SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
     Vector2 defaultPos;
     [SerializeField] AIDestinationSetter target;
-    [SerializeField] GameObject dino;
-
+    
+    [SerializeField] GameObject optionWorld;
+    //Action action;
+    public Item item;
     private void Awake()
     {
-        dino = GameObject.FindWithTag("Player ");
+        
         canvas = FindObjectOfType<Canvas>();
         rectTransform = GetComponent<RectTransform>();
-        canvasGroup = GetComponent<CanvasGroup>();
+        
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -33,7 +34,14 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
 
     public void OnDrop(PointerEventData eventData)
     {
-        dino.GetComponent<AIDestinationSetter>().target = transform;   
+        var temp= Instantiate(optionWorld, transform);
+        temp.transform.parent = null;
+        temp.transform.position=new Vector3(temp.transform.position.x, temp.transform.position.y, 0);
+        temp.GetComponent<OptionScript>().InitialiseOptionWorld(item);
+
+        
+
+        Destroy(gameObject);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -43,18 +51,14 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
+        Instantiate(gameObject);
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void InitialiseOption(Item item) {
+
+        this.item = item;
+
     }
+    
 }
