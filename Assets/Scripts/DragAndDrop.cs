@@ -14,11 +14,11 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
     [SerializeField] GameObject optionWorld;
     //Action action;
     public Item item;
-    GameObject optionPanel;
+    GameObject optionHolder;
     GameObject foodHolder;
     private void Awake()
     {
-        optionPanel = GameObject.FindGameObjectWithTag("OptionPanel");  
+        optionHolder = transform.parent.gameObject;  
         canvas = FindObjectOfType<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         
@@ -30,8 +30,8 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
         
         transform.SetParent(canvas.transform);
         defaultPos = transform.position;
-        var temp = Instantiate(gameObject, transform);
-        temp.transform.SetParent(optionPanel.transform);
+        var temp = Instantiate(gameObject, optionHolder.transform);
+        temp.transform.SetParent(optionHolder.transform);
     }
 
     public void OnDrag(PointerEventData eventData)
