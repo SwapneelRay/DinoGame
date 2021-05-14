@@ -46,9 +46,10 @@ public class DinoController : MonoBehaviour
 
         foreach (Transform item in optionPanel)
         {
+           var temp2= item.GetChild(0).GetComponent<Image>();
            var temp= item.GetComponent<Image>();
-            temp.raycastTarget = false;
-            temp.color = Color.black;
+            temp2.raycastTarget = false;
+            temp2.color = Color.black;
         }
 
     }
@@ -57,9 +58,10 @@ public class DinoController : MonoBehaviour
 
         foreach (Transform item in optionPanel)
         {
+            var temp2 = item.GetChild(0).GetComponent<Image>();
             var temp = item.GetComponent<Image>();
-            temp.raycastTarget = true;
-            temp.color = Color.white;
+            temp2.raycastTarget = true;
+            temp2.color = Color.white;
         }
 
     }
