@@ -42,9 +42,11 @@ public class DragAndDrop : MonoBehaviour,IPointerDownHandler,IDropHandler,IDragH
     public void OnDrop(PointerEventData eventData)
     {
         DestroyPreviousFood();
-        var temp= Instantiate(optionWorld, transform);
-        temp.transform.parent = null;
-        temp.transform.position=new Vector3(temp.transform.position.x, temp.transform.position.y, 0);
+        var temp= Instantiate(optionWorld,null);
+        
+        var TempPos = Camera.main.ScreenToWorldPoint(eventData.position);
+        // temp.transform.position=new Vector3(temp.transform.position.x, temp.transform.position.y, 0);
+        temp.transform.position =new Vector3(TempPos.x,TempPos.y,0);
         temp.GetComponent<OptionScript>().InitialiseOptionWorld(item);
 
         

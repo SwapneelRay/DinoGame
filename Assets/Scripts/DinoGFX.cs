@@ -8,7 +8,7 @@ public class DinoGFX : MonoBehaviour
     AIPath aiPath;
 
     Vector3 dinotransform;
-    // Start is called before the first frame update
+    
     void Start()
     {
         dinotransform = transform.localScale;
@@ -16,7 +16,7 @@ public class DinoGFX : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
 

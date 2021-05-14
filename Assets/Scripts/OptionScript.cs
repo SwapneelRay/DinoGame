@@ -26,6 +26,8 @@ public class OptionScript : MonoBehaviour
 
         this.item = item;
         transform.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
+
+
     }
 
     public ItemType FoodCheck() {

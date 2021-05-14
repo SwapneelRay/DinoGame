@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4283182283318463978}
   - component: {fileID: 2814456276880227524}
   - component: {fileID: 7439206869262449465}
+  - component: {fileID: 5100009078223841458}
   m_Layer: 0
   m_Name: OptionWorld
   m_TagString: Food
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 992923624923104233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -114,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dino: {fileID: 0}
   collider: {fileID: 0}
+  animController: {fileID: 0}
 --- !u!50 &7439206869262449465
 Rigidbody2D:
   serializedVersion: 4
@@ -135,3 +137,14 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &5100009078223841458
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992923624923104233}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
