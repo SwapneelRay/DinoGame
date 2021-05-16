@@ -6,18 +6,21 @@ using Pathfinding;
 
 public class OptionScript : MonoBehaviour
 {
-    [SerializeField] GameObject dino;
+    
     [SerializeField] Collider2D collider;
     Item item;
-
-    [SerializeField] AnimController animController;
+    [SerializeField] GameObject optHandler;
+    
     private void Awake()
     {
-        dino = GameObject.FindWithTag("Player");
-        collider = GetComponent<Collider2D>();
-        dino.GetComponent<AIDestinationSetter>().target = transform;
-        animController = FindObjectOfType<AnimController>();
-        animController.Walk(true);
+
+        optHandler = GameObject.FindGameObjectWithTag("OptionPanel"); 
+
+       
+        optHandler.GetComponent<OptionPanelScript>().SetDestination(this.transform);
+;        
+        
+        
     }
 
    
